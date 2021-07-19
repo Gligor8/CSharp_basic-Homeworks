@@ -125,8 +125,12 @@ namespace MovieStoreApp2
                                         int addMembernumber = int.Parse(Console.ReadLine());
                                         Console.WriteLine("Set the date of registration:");
                                         DateTime addDateofRegistration = DateTime.Parse(Console.ReadLine());
+                                        Console.WriteLine("Enter a subscription type: monthly or annually");
+                                        string monthly = "Monthly";
+                                        string annually = "Annually";
+                                        TypeSub addTypeSub = (TypeSub)Enum.Parse(typeof(TypeSub), monthly); 
 
-                                        users.Add(new User(addFirstname, addLastname, addAge, addUsername, addPassword, addPhonenumber, addMembernumber, addDateofRegistration));
+                                        users.Add(new User(addFirstname, addLastname, addAge, addUsername, addPassword, addPhonenumber, addMembernumber, addDateofRegistration, addTypeSub));
                                         Console.WriteLine("New user added!");
                                         continue;
                                     case 2:
@@ -216,6 +220,10 @@ namespace MovieStoreApp2
                             int addMembernumber = int.Parse(Console.ReadLine());
                             Console.WriteLine("Set the date of registration:");
                             DateTime addDateofRegistration = DateTime.Parse(Console.ReadLine());
+                            Console.WriteLine("Enter a subscription type: monthly or annually");
+                            string monthly = "Monthly";
+                            string annually = "Annually";
+                            TypeSub addTypeSub1 = (TypeSub)Enum.Parse(typeof(TypeSub), monthly);
 
                             if (firstname == "" || lastname == "" || age == null || username == "" || password == "" || phonenumber == null)
                             {
@@ -225,7 +233,7 @@ namespace MovieStoreApp2
                             }
 
 
-                            users.Add(new User(firstname, lastname, age, username, password, phonenumber, addMembernumber, addDateofRegistration));
+                            users.Add(new User(firstname, lastname, age, username, password, phonenumber, addMembernumber, addDateofRegistration, addTypeSub1));
 
                             Console.WriteLine($"{firstname + lastname}, you have registered successfully!");
 
