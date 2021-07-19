@@ -14,5 +14,6 @@ namespace ClassLibrary.Enums
         Romance,
         Erotic,
         Asian,
+        Comedy
     }
 }

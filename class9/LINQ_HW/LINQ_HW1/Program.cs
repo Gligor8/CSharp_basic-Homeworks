@@ -65,46 +65,46 @@ namespace HomeworkLinq
 			// Task 05
 			// find all male people aged 45 or more
 
-			Person MenOver45 = people
-				.Select(x => x.Age >= 45)
-				.Where(x => x.Gender = 'M');
-            Console.WriteLine(MenOver45);
+			List<Person> MenOver45 = people
+				.Where(x => x.Age >= 45 && x.Gender = 'M')
+				.toList();
+
 
 
 
 			// Task 06
 			// find all females whose name starts with V
 
-			Person WomenWithV = people
+			List<Person> WomenWithV = people
 				.Where(x => x.FirstName.StartsWith("V"))
 				.Where(x => x.Gender == 'F')
 				.toList();
-            Console.WriteLine(WomenWithV);
+			//Console.WriteLine(WomenWithV);
 
 			// Task 07
 			// find last female person older than 30 whose name starts with p
-			List<Person> Woman30P = people
-							.Select(x => x.Age > 30)
-							.Select(x => x.FirstName.StartsWith("p"))
+			Person Woman30P = people
+							.Where(x => x.Age > 30)
+							.Where(x => x.FirstName.StartsWith("p"))
 							.Where(x => x.Gender == 'F')
-							.ToList();
+							.LastOrDefault();
             Console.WriteLine(Woman30P);
 
 			// Task 08
 			// find first male younger than 40
-			List<Person> MenYoungerThan40 = people
+			Person MenYoungerThan40 = people
 				.Where(x => x.Age < 40)
 				.Where(x => x.Gender == 'M')
-				.First()
-				.toList();
+				.First();
+				
             Console.WriteLine(MenYoungerThan40);
 			// Task 09
 			// print the names of the male persons that have firstName longer than lastName
-			List<Person> MaleNamesLongerThatLastNames = people
-				.Where(x => x == 'M')
+			List<string> MaleNamesLongerThatLastNames = people
+				.Where(x => x.Gender == 'M')
 				.Where(x => x.FirstName.Length > x.LastName.Length)
-				.toList();
-            Console.WriteLine(MaleNamesLongerThatLastNames);
+				.Select(x => x.FirstName)
+				.ToList();
 			// Task 10
 			// print the lastNames of the female persons that have odd number of ages
 			List<Person> FemaleOddNumAges = people

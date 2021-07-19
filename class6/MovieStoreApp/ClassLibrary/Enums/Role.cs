@@ -4,11 +4,10 @@ using System.Text;
 
 namespace ClassLibrary.Enums
 {
-    public enum MemberRole
+    public enum Role
     {
-        Rent = 1,
-        Buy,
-        Extend,
+        Employee,
+        User,
 
     }
 }
